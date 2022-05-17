@@ -1,3 +1,4 @@
+import "./iot";
 
 import cors from "cors";
 import db from "./db";
@@ -5,7 +6,7 @@ import dotenv from "dotenv";
 import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
-import registerAdminBro from "adminBro";
+import registerAdminBro from "./adminBro";
 //Importing routes
 import routes from "./routes/index.routes";
 
@@ -16,7 +17,6 @@ if (resultDot.error) {
 
 db.connect();
 
-import "./iot";
 
 const app = express();
 
