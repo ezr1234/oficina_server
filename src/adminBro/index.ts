@@ -42,7 +42,7 @@ const registerAdminBro = (app: Express) => {
         resource: DataModel,
         options: {
           navigation: baseNaviagation,
-          listProperties: ["data", "board"],
+          listProperties: ["data", "board", "createdAt"],
           properties: {},
           actions: {
             new: {},
