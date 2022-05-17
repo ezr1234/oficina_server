@@ -2,8 +2,8 @@ import AdminBro, { AdminBroOptions } from "admin-bro";
 
 import AdminBroExpress from "@admin-bro/express";
 import AdminBroMongoose from "@admin-bro/mongoose";
-import BoardModel from "models/BoardModel";
-import DataModel from "models/DataModel";
+import BoardModel from "../models/BoardModel";
+import DataModel from "../models/DataModel";
 import { Express } from "express";
 
 const isSuper = ({ currentAdmin, record }) => {

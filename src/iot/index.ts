@@ -1,4 +1,4 @@
-import { Board, Data } from "models";
+import { Board, Data } from "../models";
 
 import mqtt from "mqtt";
 
