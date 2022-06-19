@@ -42,8 +42,26 @@ const registerAdminBro = (app: Express) => {
         resource: DataModel,
         options: {
           navigation: baseNaviagation,
-          listProperties: ["data", "board", "createdAt"],
-          properties: {},
+          listProperties: ["dataType", "board", "createdAt"],
+          properties: {
+            dataType: {
+              isVisible: true,
+              availableValues: [
+                {
+                  value: "CALL",
+                  label: "Solicitando garçom",
+                },
+                {
+                  value: "CHECK",
+                  label: "Pagar conta",
+                },
+                {
+                  value: "CANCEL",
+                  label: "Cancela a ação",
+                },
+              ],
+            },
+          },
           actions: {
             new: {},
             edit: {

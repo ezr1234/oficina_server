@@ -2,6 +2,8 @@ import { Document, Schema, model } from "mongoose";
 
 export interface BoardI extends Document {
   mac: string;
+  name: string;
+  serial: string;
   createdAt: Date;
 }
 
@@ -10,6 +12,9 @@ const Board = new Schema({
     type: String,
     required: true,
     unique: true,
+  },
+  name: {
+    type: String,
   },
   serial: {
     type: String,

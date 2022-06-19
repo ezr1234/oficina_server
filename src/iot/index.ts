@@ -1,5 +1,6 @@
 import { Board, Data } from "../models";
 
+import { DataI } from "models/DataModel";
 import mqtt from "mqtt";
 
 const client = mqtt.connect(process.env.MQTT_URI);
@@ -17,7 +18,18 @@ client.on("message", async function (topic, message) {
     console.log(converted);
     const board = await Board.findOne({ serial });
     if (board) {
-      await Data.create({ data: converted, board });
+      let dataType: DataI["dataType"] = "CALL";
+      switch (converted) {
+        case 1:
+          dataType = "CALL";
+        case 2:
+          dataType = "CHECK";
+        case 3:
+          dataType = "CANCEL";
+        default:
+          dataType = "CALL";
+      }
+      await Data.create({ data: converted, board, dataType });
     }
   }
   console.log(message.toString(), topic, serial);
