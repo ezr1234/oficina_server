@@ -18,17 +18,22 @@ client.on("message", async function (topic, message) {
     console.log(converted);
     const board = await Board.findOne({ serial });
     if (board) {
-      let dataType: DataI["dataType"] = "CALL";
+      let dataType: DataI["dataType"];
       switch (converted) {
-        case 1:
+        case 0:
           dataType = "CALL";
-        case 2:
+          break;
+        case 1:
           dataType = "CHECK";
-        case 3:
+          break;
+        case 2:
           dataType = "CANCEL";
+          break;
         default:
           dataType = "CALL";
+          break;
       }
+      console.log(dataType, "type");
       await Data.create({ data: converted, board, dataType });
     }
   }

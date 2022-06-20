@@ -62,6 +62,10 @@ const registerAdminBro = (app: Express) => {
               ],
             },
           },
+          sort: {
+            direction: "desc",
+            sortBy: "createdAt",
+          },
           actions: {
             new: {},
             edit: {
